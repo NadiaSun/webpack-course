@@ -51,13 +51,3 @@ export class ResizeHandler {
         })
     }
 }
-
-    //     document.onmousemove = e => {
-    //         console.log(e)
-    //
-    //     }
-    //
-    //     document.onmouseup = () => {
-    //         document.onmousemove = null
-    //         document.onmouseup = null
-
