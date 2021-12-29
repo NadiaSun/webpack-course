@@ -1,50 +1,43 @@
 import {$} from '@core/dom';
 
-export class ResizeHandler {
-    constructor(event, $root) {
-        this.onEvent = event
-        this.$root = $root
-    }
+export function resizeHandler($root, event) {
+    const $resizer = $(event.target)
+    const $parent = $resizer.closest('[data-type="resizable"]')
+    const type = event.target.dataset.resize
+    const coords = $parent.getCoords()
+    const sideProp = type === 'col' ? 'bottom' : 'right'
+    let value
 
-    createEvent() {
-        this.$resizer = $(this.onEvent.target)
-        this.$parent = this.$resizer.closest('[data-type="resizable"]')
-        this.type = this.onEvent.target.dataset.resize // col
-    }
+    $resizer.css({
+        opacity: 1,
+        [sideProp]: '-5000px'
+    })
 
-    cssEvent() {
-        this.coords = this.$parent.getCoords()
-        this.sideProp = this.type === 'col' ? 'bottom' : 'right' // bottom
-        this.value = undefined
-
-        this.$resizer.css({
-            opacity: 1,
-            [this.sideProp]: '-5000px'
-        })
-    }
-
-    checkEvent(e) {
-        if (this.type === 'col') {
-            const delta = e.pageX - this.coords.right;
-            this.value = this.coords.width + delta;
-            this.$resizer.css({right: -delta + 'px'})
+    document.onmousemove = e => {
+        if (type === 'col') {
+            const delta = e.pageX - coords.right;
+            value = coords.width + delta;
+            $resizer.css({right: -delta + 'px'})
         } else {
-            const delta = e.pageY - this.coords.bottom;
-            this.value = this.coords.height + delta;
-            this.$resizer.css({bottom: -delta + 'px'})
+            const delta = e.pageY - coords.bottom;
+            value = coords.height + delta;
+            $resizer.css({bottom: -delta + 'px'})
         }
     }
 
-    endEvent() {
-        if (this.type === 'col') {
-            this.$parent.css({width: this.value + 'px'});
-            this.$root.findAll(`[data-col="${this.$parent.data.col}"]`)
-                .forEach(el => el.style.width = this.value + 'px');
+    document.onmouseup = () => {
+        document.onmousemove = null
+        document.onmouseup = null
+
+        if (type === 'col') {
+            $parent.css({width: value + 'px'});
+            $root.findAll(`[data-col="${$parent.data.col}"]`)
+                .forEach(el => el.style.width = value + 'px');
         } else {
-            this.$parent.css({height: this.value + 'px'});
+            $parent.css({height: value + 'px'});
         }
 
-        this.$resizer.css({
+        $resizer.css({
             opacity: 0,
             bottom: 0,
             right: 0,
