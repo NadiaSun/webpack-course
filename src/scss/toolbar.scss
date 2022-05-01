@@ -17,4 +17,8 @@
   .button {
     @include button(lightgreen)
   }
+  .material-icons {
+    pointer-events: none;
+    user-select: none;
+  }
 }

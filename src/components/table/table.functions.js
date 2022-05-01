@@ -1,4 +1,5 @@
 import {range} from '@core/utils';
+import {$} from '@core/dom';
 
 export function shouldResize(event) {
     return event.target.dataset.resize
@@ -7,6 +8,11 @@ export function shouldResize(event) {
 export function isCell(event) {
     return event.target.dataset.type === 'cell'
 }
+
+export function isAllCol(event, type) {
+    return event.target.dataset.all === 'col'
+}
+
 export function getId($el) {
     return $el.id(true)
 }
@@ -43,4 +49,12 @@ export function nextSelector(key, {col, row}) {
     }
 
     return `[data-id="${row}:${col}"]`
+}
+
+export function getAllCol($root, event) {
+    const arr = []
+    const col = event.target.dataset.col
+    const allCol = $root.findAll(`[data-col="${col}"]`).forEach(e => arr.push(e))
+    const $allCol = arr.map(e => $(e))
+    return $allCol
 }

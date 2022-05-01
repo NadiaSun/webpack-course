@@ -15,6 +15,7 @@
     "no-unused-vars": "off",
     "operator-linebreak": "off",
     "max-len": "off"
+//    "no-case-declarations": "off"
   },
   "extends": ["eslint:recommended", "google"]
 }
