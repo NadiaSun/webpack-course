@@ -1,0 +1,23 @@
+@import "variables";
+@import "mixins";
+
+.error {
+  text-align: center;
+  margin-top: 100px;
+  background: #c5ffbb;
+  width: 100%;
+  height: 100%;
+  .error__text {
+    color: #095421;
+    .img {
+      max-width: 400px;
+    }
+  }
+  .error__return {
+    a {
+      color: #095421;
+    }
+  }
+}
+
+

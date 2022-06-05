@@ -1,3 +1,7 @@
+export function preventDefault(event) {
+    event.preventDefault()
+}
+
 export function capitalize(string) {
     if (typeof string !== 'string') {
         return ''
@@ -19,6 +23,10 @@ export function storage(key, data = null) {
          return JSON.parse(localStorage.getItem(key))
      }
      return localStorage.setItem(key, JSON.stringify(data))
+}
+
+export function storageDelete(key) {
+    localStorage.removeItem(key)
 }
 
 export function isEqual(a, b) {
@@ -50,4 +58,8 @@ export function debounce(fn, wait) {
         clearTimeout(timeout)
         timeout = setTimeout(later, wait)
     }
+}
+
+export function clone(obj) {
+    return JSON.parse(JSON.stringify(obj))
 }
