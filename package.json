@@ -7,7 +7,7 @@
     "dev": "cross-env NODE_ENV=development webpack --mode development",
     "start": "cross-env NODE_ENV=development webpack serve --mode development --open",
     "build": "cross-env NODE_ENV=production webpack --mode production",
-    "lint":  "npx eslint ./src"
+    "lint":  "npx eslint ./docs"
   },
   "repository": {
     "type": "git",
