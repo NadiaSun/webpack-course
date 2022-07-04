@@ -1,3 +1,3 @@
 export function isButton(event) {
-    return event.target.dataset.type === 'button'
+    return event.target.dataset.type === 'button';
 }

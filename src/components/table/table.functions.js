@@ -16,7 +16,6 @@ export function isAllCol(event, type) {
 export function getId($el) {
     return $el.id(true)
 }
-
 export function matrix($target, $current) {
     const target = getId($target)
     const current = getId($current)

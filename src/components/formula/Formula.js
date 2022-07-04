@@ -12,7 +12,6 @@ export class Formula extends ExcelComponents {
             ...options
         });
     }
-
     toHTML() {
         return `<div class="info">fx</div>
                 <div id="formula" class="input" contenteditable spellcheck="false"></div>`

@@ -26,15 +26,15 @@ export class Router {
         if (this.page) {
             this.page.destroy()
         }
-        this.$placeholder.clear()
+        this.$placeholder.clear();
         const Page = ActiveRoute.path.includes('dashboard') || ActiveRoute.path === ''
             ? this.routes.dashboard
             : ActiveRoute.path.includes('excel')
                 ? this.routes.excel
-                : this.routes.error
-        this.page = new Page(ActiveRoute.param)
-        this.$placeholder.append(this.page.getRoot())
-        this.page.afterRender()
+                : this.routes.error;
+        this.page = new Page(ActiveRoute.param);
+        this.$placeholder.append(this.page.getRoot());
+        this.page.afterRender();
     }
 
     destroy() {

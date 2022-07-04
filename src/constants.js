@@ -3,6 +3,6 @@ export const defaultStyles = {
     fontWeight: 'normal',
     textDecoration: 'none',
     fontStyle: 'normal'
-}
+};
 
-export const defaultTitle = 'Новая таблица'
+export const defaultTitle = 'Новая таблица';

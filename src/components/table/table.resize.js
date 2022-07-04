@@ -8,6 +8,7 @@ export function resizeHandler($root, event) {
         const coords = $parent.getCoords()
         const sideProp = type === 'col' ? 'bottom' : 'right'
         let value
+
         $resizer.css({
             opacity: 1,
             [sideProp]: '-5000px'

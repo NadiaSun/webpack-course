@@ -2,15 +2,15 @@ class Dom {
     constructor(selector) {
         this.$el = typeof selector === 'string'
         ? document.querySelector(selector)
-        : selector
+        : selector;
     }
 
     html(html) {
         if (typeof html === 'string') {
-            this.$el.innerHTML = html
-            return this
+            this.$el.innerHTML = html;
+            return this;
         }
-        return this.$el.outerHTML.trim()
+        return this.$el.outerHTML.trim();
     }
 
     text(text) {

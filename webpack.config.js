@@ -18,7 +18,6 @@ const optimization = () => {
             chunks: 'all',
         }
     }
-
     if (isProd) {
         config.minimizer = [
             new CssMinimizerWebpackPlugin(),
@@ -80,7 +79,7 @@ module.exports = {
                   to: path.resolve(__dirname, 'dist')
                 },
                 {
-                    from: path.resolve(__dirname, 'src/Snake.png'),
+                    from: path.resolve(__dirname, 'src/snake.png'),
                     to: path.resolve(__dirname, 'dist')
                 }
             ]}
