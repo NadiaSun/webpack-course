@@ -1,4 +1,5 @@
 import {storage} from '@core/utils';
+import {openingDate} from '@core/openedDate';
 
 // function date(day, time) {
 //     const arrDay = day.split('.')
@@ -24,11 +25,10 @@ import {storage} from '@core/utils';
 function toHTML(key) {
     const model = storage(key)
     const id = key.split(':')[1]
-    date(new Date(model.openedDate).toLocaleDateString(), new Date(model.openedDate).toLocaleTimeString().slice(0, 5))
     return `<li class="db__record">
                 <a href="#excel/${id}">${model.title}</a>
                 <strong>
-                    ${new Date(model.openedDate).toLocaleDateString()}
+                    ${openingDate(new Date(model.openedDate))}
                     ${new Date(model.openedDate).toLocaleTimeString().slice(0, 5)}
                 </strong>
             </li>`
@@ -46,18 +46,31 @@ function getAllKeys() {
     return keys
 }
 
+function getKey(key) {
+    return {
+        key,
+        openedDate: storage(key).openedDate}
+}
+
+function byField() {
+    return (a, b) => a.openedDate > b.openedDate ? -1 : 1;
+}
+
 export function createRecordsTable() {
     const keys = getAllKeys()
 
     if (!keys.length) {
-        return `<p>Undefined</p>`
+        return `<p>Вы пока ещё ничего не создали</p>`
     }
-
+    const newKeys = keys
+        .map(key => getKey(key))
+        .sort(byField())
+        .map(obj => obj.key)
     return `<div class="db__list-header">
                     <span>Название</span>
                     <span>Дата открытия</span>
                 </div>
                 <ul class="db__list">
-                     ${keys.map(toHTML).join('')}
+                     ${newKeys.map(toHTML).join('')}
                 </ul>`
 }
