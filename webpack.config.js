@@ -44,7 +44,7 @@ const jsLoaders = () => {
 
 module.exports = {
     mode: 'development',
-    context: path.resolve(__dirname, 'src'),
+    context: path.resolve(__dirname, 'docs'),
     entry: ['@babel/polyfill', './index.js'],
     output: {
         filename: filename('js'),
@@ -53,8 +53,8 @@ module.exports = {
     resolve: {
         extensions: ['.js'],
         alias: {
-            '@': path.resolve(__dirname, 'src'),
-            '@core': path.resolve(__dirname, 'src/core')
+            '@': path.resolve(__dirname, 'docs'),
+            '@core': path.resolve(__dirname, 'docs/core')
         }
     },
     optimization: optimization(),
@@ -76,11 +76,11 @@ module.exports = {
         new CopyWebpackPlugin({
             patterns: [
                 {
-                  from: path.resolve(__dirname, 'src/favicon.ico'),
+                  from: path.resolve(__dirname, 'docs/favicon.ico'),
                   to: path.resolve(__dirname, 'dist')
                 },
                 {
-                    from: path.resolve(__dirname, 'src/Snake.png'),
+                    from: path.resolve(__dirname, 'docs/Snake.png'),
                     to: path.resolve(__dirname, 'dist')
                 }
             ]}
