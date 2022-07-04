@@ -9,3 +9,5 @@ new Router('#app', {
     excel: ExcelPage,
     error: ErrorPage
 })
+
+console.log('Work')
