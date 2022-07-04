@@ -18,7 +18,7 @@ export function createStore(rootReducer, initialState = {}) {
         getState() {
             // JSON.stringify преобразует значение в строку
             // JSON.parse преобразовывает обратно в нужное состояние
-            return JSON.parse(JSON.stringify(state))
+            return JSON.parse(JSON.stringify(state));
         }
     }
 }

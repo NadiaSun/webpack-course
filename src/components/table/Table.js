@@ -87,6 +87,7 @@ export class Table extends ExcelComponents {
             this.resizeTable(event)
         } else if (isCell(event)) {
             const $cell = $(event.target)
+
             if (event.shiftKey) {
                 const $cells = matrix($cell, this.selection.current).map(id => this.$root.find(`[data-id="${id}"]`))
                 this.selection.selectGroup($cells)

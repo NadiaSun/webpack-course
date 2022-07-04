@@ -3,14 +3,14 @@ import {DomListener} from '@core/DomListener';
 export class ExcelComponents extends DomListener {
     constructor($root, options = {}) {
         super($root, options.listeners);
-        this.name = options.name
-        this.emitter = options.emitter
-        this.subscribe = options.subscribe || []
-        this.store = options.store
-        this.unsubscribers = []
-        // this.storeSub = null
+        this.name = options.name;
+        this.emitter = options.emitter;
+        this.subscribe = options.subscribe || [];
+        this.store = options.store;
+        this.unsubscribers = [];
+        // this.storeSub = null;
 
-        this.prepare()
+        this.prepare();
     }
 
     prepare() {}

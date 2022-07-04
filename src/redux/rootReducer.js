@@ -26,11 +26,11 @@ export function rootReducer(state, action) {
         case CHANGE_STYLES:
             return {...state, currentStyles: action.data};
         case APPLY_STYLE:
-            field = 'stylesState'
-            val = state[field] || {}
+            field = 'stylesState';
+            val = state[field] || {};
             action.data.ids.forEach(id => {
                 val[id] = {...val[id], ...action.data.value}
-            })
+            });
             return {
                 ...state,
                 [field]: val,

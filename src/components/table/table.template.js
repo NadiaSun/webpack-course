@@ -62,8 +62,7 @@ function createRow(number, content, state) {
                 ${resize}
             </div>
             <div class="row-data">${content}</div>
-        </div>
-`
+        </div>`
 }
 
 function toChar(_, index) {

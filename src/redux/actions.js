@@ -33,14 +33,14 @@ export function appleStyle(data) {
     return {
         type: APPLY_STYLE,
         data
-    }
+    };
 }
 
 export function changeTitle(data) {
     return {
         type: CHANGE_TITLE,
         data
-    }
+    };
 }
 
 export function updateDate() {

@@ -4,7 +4,7 @@ import {createRecordsTable} from '@/pages/dasboard.functions';
 
 export class DashboardPage extends Page {
     getRoot() {
-        const now = Date.now().toString()
+        const now = Date.now().toString();
         return $.create('div', 'db').html(`
             <div class="db__header">
                 <h1>Hello World!</h1>

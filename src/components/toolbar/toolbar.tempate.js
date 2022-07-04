@@ -1,9 +1,9 @@
 function toButton(button) {
-    const json = JSON.stringify(button.value)
+    const json = JSON.stringify(button.value);
     const meta = `
         data-type="button"
         data-value='${json}'
-    `
+    `;
     return `<div
                 class="button ${button.action ? 'active' : ''}"
                 ${meta}>

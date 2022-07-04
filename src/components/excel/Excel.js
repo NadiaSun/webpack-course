@@ -29,7 +29,6 @@ export class Excel {
 
         return $root;
     }
-
     init() {
         if (process.env.NODE_ENV === 'production') {
             document.addEventListener('contextmenu', preventDefault)
