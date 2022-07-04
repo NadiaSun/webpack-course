@@ -1,8 +1,7 @@
-// import './scss/index.scss'
-requires {Router} from '@core/routes/Router';
-requires {DashboardPage} from '@/pages/DashboardPage';
-requires {ExcelPage} from '@/pages/ExcelPage';
-requires {ErrorPage} from '@/pages/ErrorPage';
+import {Router} from '@core/routes/Router';
+import {DashboardPage} from '@/pages/DashboardPage';
+import {ExcelPage} from '@/pages/ExcelPage';
+import {ErrorPage} from '@/pages/ErrorPage';
 
 new Router('#app', {
     dashboard: DashboardPage,
