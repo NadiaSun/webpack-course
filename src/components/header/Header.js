@@ -42,7 +42,7 @@ export class Header extends ExcelComponents {
         if ($target.data.button === 'exit') {
             ActiveRoute.navigate('')
         } else if ($target.data.button === 'remove') {
-            const decision = confirm('Ви справді вирішили видалити таблицю?')
+            const decision = confirm('You really decided to delete the table?')
             if (decision) {
                 storageDelete(`excel:${ActiveRoute.param}`)
                 ActiveRoute.navigate('')
