@@ -11,12 +11,12 @@ import {openingDate} from '@core/openedDate';
 //         case 0:
 //             return `${day} ${time}`;
 //         case 1:
-//             return '1 день назад';
+//             return '1 day ago';
 //         case 2:
-//             return '2 дня назад';
+//             return '2 days ago';
 //         default:
 //             if (diff > 30) {
-//                 return 'месяц назад'
+//                 return 'a month ago'
 //             }
 //     }
 //     return ''
@@ -60,15 +60,15 @@ export function createRecordsTable() {
     const keys = getAllKeys()
 
     if (!keys.length) {
-        return `<p>Вы пока ещё ничего не создали</p>`
+        return `<p>You haven't created anything yet</p>`
     }
     const newKeys = keys
         .map(key => getKey(key))
         .sort(byField())
         .map(obj => obj.key)
     return `<div class="db__list-header">
-                    <span>Название</span>
-                    <span>Дата открытия</span>
+                    <span>Name</span>
+                    <span>Opening date</span>
                 </div>
                 <ul class="db__list">
                      ${newKeys.map(toHTML).join('')}
